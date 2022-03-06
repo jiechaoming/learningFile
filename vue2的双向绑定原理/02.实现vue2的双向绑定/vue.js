@@ -68,7 +68,6 @@ function Compile(el, vm){
         if(node.nodeType == 3){
             const text = node.textContent
             const result = regMustache.exec(text)
-            console.log(result);
             if(result){
                 const value = result[1].split('.').reduce((obj, key)=>{return obj[key]}, vm)   
                 node.textContent = text.replace(regMustache, value)
@@ -78,6 +77,20 @@ function Compile(el, vm){
                 })
             }
             return
+        }
+
+        // 是输入框
+        if(node.nodeType == 1 && node.tagName.toUpperCase() === 'INPUT'){
+            const attrs = Array.from(node.attributes)
+            const findResult = attrs.find((item)=>item.name == 'v-model')
+            if(findResult){
+                // 获取到当前v-model的值
+                const expStr = findResult.value
+                    console.log(expStr);
+                const value = expStr.split('.').reduce((obj, key)=>obj[key], vm)
+                // 把值赋给文本框
+                node.value = value
+            }
         }
 
         // 不是文本节点，可能是一个dom元素，此时还有继续进行递归
