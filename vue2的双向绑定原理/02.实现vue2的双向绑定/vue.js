@@ -18,6 +18,8 @@ class Vue{
                 }
             })
         })
+        //调用模板编译
+        Compile(option.el, this)
     }
 }
 
@@ -39,4 +41,39 @@ function Observer(obj){
             }
         })
     })
+}
+
+function Compile(el, vm){
+    vm.$el = document.querySelector(el)
+    // 使用文档碎片来提高操作的效率
+    const fragment = document.createDocumentFragment()
+    // firstChild是拿到第一个子节点（空格换行也是子节点）
+    while((childNode = vm.$el.firstChild)){
+        // 这里要注意appendChild的使用
+        fragment.appendChild(childNode)
+    }
+    replace(fragment)
+    vm.$el.appendChild(fragment)
+
+
+    //负责对DOM模板进行编译
+    function replace(node){
+        //匹配插值表达式的正则
+        const regMustache = /\{\{\s*(\S+)\s*\}\}/
+        // 是文本节点，就需要进行正则匹配
+        if(node.nodeType == 3){
+            const text = node.textContent
+            const result = regMustache.exec(text)
+            console.log(result);
+            if(result){
+                node.textContent = result[1].split('.').reduce((obj, key)=>{
+                    return obj[key]
+                }, vm)   
+            }
+            return
+        }
+
+        // 不是文本节点，可能是一个dom元素，此时还有继续进行递归
+        node.childNodes.forEach((item)=>replace(item))
+    }
 }

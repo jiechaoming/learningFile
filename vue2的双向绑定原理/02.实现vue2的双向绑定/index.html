@@ -7,13 +7,14 @@
     <title>Document</title>
 </head>
 <body>
-    <div>
+    <div id="app">
         <span>{{name}}</span>
         <span>{{age}}</span>
     </div>
     <script src="./vue.js"></script>
     <script>
         const vm = new Vue({
+            el:'#app',
             data:{
                 name: 'gs',
                 age: 18,
