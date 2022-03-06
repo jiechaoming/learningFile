@@ -90,6 +90,16 @@ function Compile(el, vm){
                 const value = expStr.split('.').reduce((obj, key)=>obj[key], vm)
                 // 把值赋给文本框
                 node.value = value
+                new Watcher(vm, expStr, (newValue)=>{
+                    node.value = newValue
+                })
+
+                // 监听文本框的输入事件，拿到文本框的最新值，然后把最新值更新到data
+                node.addEventListener('input', (e)=>{
+                    const keyArr = expStr.split('.')
+                    const obj = keyArr.slice(0, keyArr.length - 1).reduce((obj, key)=>obj[key], vm)
+                    obj[keyArr[keyArr.length -1 ]] = e.target.value
+                })
             }
         }
 
