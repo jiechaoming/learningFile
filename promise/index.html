@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./promise.js"></script>
+    <script>
+        const promise = new Promise((resolve, reject)=>{
+            resolve('111111111111')
+            console.log('sssssssssssss');
+        })
+        console.log(promise);
+        promise.then(v=>{
+            console.log('222222222');
+        }).catch(r=>{
+            console.log('object',r);
+        })
+        console.log('333333333');
+    </script>
+</body>
+</html>
