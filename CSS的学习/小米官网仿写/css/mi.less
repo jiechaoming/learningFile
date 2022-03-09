@@ -1,0 +1,96 @@
+*{
+    padding: 0;
+    margin:  0;
+}
+.header{
+    width: 100%;
+    height: 40px;
+    background-color: #333;
+}
+.wrap{
+    width: 1226px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    ul{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        li{
+            list-style: none;
+            a{
+                color: #b0b0b0;
+                line-height: 40px;
+                display: inline-block;
+                text-decoration:none;
+            }
+            a:hover{
+                color: #fff;
+            }
+            span{
+                margin: 0 .3em;
+                color: #424242;
+            }
+        }
+    }
+
+}
+
+.wrap-right{
+    .cart{
+        position: relative;
+        a{
+            em{
+                margin-right: 4px;
+                font-size: 20px;
+                vertical-align: -4px;
+                line-height: 20px;
+                font-weight: 600;
+            }
+            span{
+                color: #b0b0b0;
+            }
+            transition: all .3s;
+        }
+        .cart-list{
+            position: absolute;
+            right: 0;
+            width: 320px;
+            height: 0;
+            text-align: center;
+            background-color: #fff;
+            color: #424242;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, .15);
+            // 因为有过渡，所有cart-list的高度不会立刻到100px
+            // 但是p标签是没有过渡效果的，所有这里加上overflow属性
+            // cart-list不足以放下p标签内容的时候，此时p标签是隐藏的
+            overflow: hidden;
+            transition: all .3s;
+            p{
+                display: none;
+            }
+        }
+    }
+    .cart:hover{
+        background-color: #fff;
+        a{
+            color: #ff6700;
+            span{
+                color: #ff6700;
+                background-color: #fff;
+            }
+        }
+        .cart-list{
+            // 因为display：none是无法实现过渡的，所有这里通过控制高度来实现出现和隐藏
+            height: 100px;
+            line-height: 100px;
+            p{
+                display: inline;
+            }
+        }
+    }
+}
+
+
