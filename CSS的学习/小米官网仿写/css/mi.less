@@ -4,9 +4,9 @@
 }
 .header{
     width: 100%;
-    height: 40px;
 }
 .site-topbar{
+    height: 40px;
     min-width: 1226px;
     background-color: #333;
 }
@@ -141,6 +141,108 @@
             p{
                 display: inline;
             }
+        }
+    }
+}
+
+.site-header{
+    height: 100px;
+    .container{
+        width: 1226px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        a{
+            color: #333;
+            display: inline-block;
+            text-decoration: none;
+        }
+        .header-logo{
+            width: 62px;
+            a{
+                &::before{
+                    content: '';
+                    display: block;
+                    width: 56px;
+                    height: 56px;
+                    background: url('../image/logo-mi2.png') no-repeat;
+                    background-size: 56px;
+                }
+            }
+        }
+        .header-nav{
+            width: 850px;
+            height: 100px;
+            ul{
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                .whiteSpace{
+                    width: 142px;
+                }
+                li{
+                    list-style: none;
+                    padding: 26px 10px 38px 10px;
+                    line-height: 46px;
+                    a{
+                        &:hover{
+                            color: #ff6700;;
+                        }
+                    }
+                }
+            }
+        }
+        .header-seacher{
+            // 当input标签是块元素，a标签是行内元素，倘若此时a设置为block，那么会导致换行的问题。
+            // 倘若将a设置为inline-block，那么两个标签的空格会被识别，导致多占用了空间
+            // 这里使用flex布局，没有这个问题。
+            width: 296px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            .serach-input{
+                width: 245px;
+                height: 50px;
+                padding: 0 10px;
+                border: 1px solid #e0e0e0;
+                box-sizing: border-box;
+                outline: none;
+                transition: all .2s;
+                &:hover, &:hover+a{
+                    border-color: #b0b0b0;
+                }
+            }
+            a{
+                width: 50px;
+                height: 50px;
+                text-align: center;
+                line-height: 50px;
+                border: 1px solid #e0e0e0;
+                border-left: none;
+                padding: 0 6px;
+                box-sizing: border-box;
+                transition: all .2s;
+                em{
+                    font-size: 24px;
+                    font-weight: bold;
+                    color: #616161;
+                }
+                &:hover{
+                    background: #ff6700;
+                    em{
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    
+    }
+    .nav-menu{
+        width: 100%;
+        background-color: red;
+        .container{
+            min-width: 1226px;
         }
     }
 }
