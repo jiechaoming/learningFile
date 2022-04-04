@@ -13,6 +13,13 @@
       "unicode_decimal": 13399
     },
     {
+      "icon_id": "630094",
+      "name": "向右箭头",
+      "font_class": "xiangyoujiantou",
+      "unicode": "e65f",
+      "unicode_decimal": 58975
+    },
+    {
       "icon_id": "1235221",
       "name": "微信",
       "font_class": "weixin",

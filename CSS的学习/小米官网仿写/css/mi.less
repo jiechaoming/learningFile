@@ -246,5 +246,147 @@
         }
     }
 }
+.home{
+    position: relative;
+    width: 1226px;
+    margin: 0 auto;
+    .home-main{
+        width: 100%;
+        height: 460px;
+        font-size: 16px;
+        font-weight: bold;
+        .category{
+            position: absolute;
+            left: 0;
+            display: flex;
+            z-index: 99;
+            ul{
+                width: 234px;
+                display: flex;
+                padding: 20px 0;
+                background: rgba(0, 0, 0, .25);
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                transition: all .2s;
+                li{
+                    width: 100%;
+                    list-style: none;
+                    &:hover{
+                        background-color: #ff6700;
 
+                    }
+                    
+                    a{
+                        display: inline-block;
+                        box-sizing: border-box;
+                        width: 100%;
+                        padding-left: 30px;
+                        line-height: 42px;
+                        text-decoration: none;
+                        color: #fff;
+                        position: relative;
+                        em{
+                            position: absolute;
+                            right: 25px;
+                        }
+                    }
+                }
+            }
+            .content{
+                box-sizing: border-box;
+                width: 800px;
+                height: 460px;
+                background-color: #fff;
+                border: 1px solid #e0e0e0;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, .15);
+                display: none;
+                z-index: 9;
+            }
+        }
+        .img-slider{
+            position: relative;
+            overflow: hidden;
+            width: 1226px;
+            height: 460px;
+            .slide-list{
+                display: flex;
+                position: relative;
+                left: 0px;
+                transition:  all ease-in-out .5s;
+                img{
+                    width: 100%;
+                    height: 100%;
+                    cursor: pointer;
+                }
+            }
+            .btn-common{
+                width: 41px;
+                height: 69px;
+                position: absolute;
+                top: 50%;
+                right: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transform: translateY(-50%);
+                background: url(../image/icon-slides.png) no-repeat;  
+                z-index: 99;
+            }
+            .btn-right{
+                background-position-x: -126px;
+                &:hover{
+                    background-position-x: -42px;
+                }
 
+            }
+            .btn-left{
+                right: unset;
+                left: 234px;
+                background-position-x: -87px;
+                &:hover{
+                    background-position-x: -0px;
+                }
+            }
+            .circle-list{
+                position: absolute;
+                width: 88px;
+                bottom: 21px;
+                right: 66px;
+                display: flex;
+                justify-content: space-around;
+                .circle{
+                    list-style: none;
+                    width: 12px;
+                    height: 12px;
+                    border-radius: 50%;
+                    background: rgba(97, 90, 90, 0.4);
+                    position: relative;
+                    &::before{
+                        content: '';
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        transform: translate(-50%, -50%);
+                        width: 7px;
+                        height: 7px;
+                        border-radius: 50%;
+                        background-color: rgba(0, 0, 0, .6);
+                        opacity: 0.7;
+                    }
+                }
+                .active::before{
+                    background-color: rgba(255, 255, 255);
+                }
+            }
+        }
+    }
+    .home-footer{
+        width: 100%;
+        height: 170px;
+        background-color: darkblue;
+    }
+
+}
+
+  
